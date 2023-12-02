@@ -5,5 +5,91 @@ header nav div img{
     margin-top: 5px;
 }
 #cuenta-carrito{
-    margin: 0 1210px;
+    margin: 0 1215px;
+    display: flex;
+    position: relative;
+    top: -50px;
 }
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -145px;
+}
+#comprar{
+    margin-left: 45.6%;
+    margin-top: 60px;
+    width: 120px; 
+    height: 30px; 
+    background: #ACB8BB; 
+    border-radius: 15px
+}
+#limpiar{
+    margin-left: 45.6%;
+    margin-top: 20px;
+    width: 120px; 
+    height: 30px; 
+    background: #ACB8BB; 
+    border-radius: 15px
+}
+#limpiar2{
+    display: none;
+}
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px; 
+}
+.tarjeta-producto {
+    flex: 1 0 30%; 
+    margin: 1em; 
+    max-width: 400px; 
+    box-sizing: border-box; 
+    background-color: #D9D9D9;
+    width: 320px; 
+    height: 430px;
+    border-radius: 20px;
+}
+.tarjeta-producto h1{ 
+    text-align: center;
+    color: black; 
+    font-size: 21px; 
+    font-family: Inter; 
+    font-weight: 900; 
+    word-wrap: break-word
+}
+.tarjeta-producto h2{
+    text-align: center;
+    color: black; 
+    font-size: 18px; 
+    font-family: Inter; 
+    font-weight: 550; 
+    word-wrap: break-word
+}
+.tarjeta-producto p{
+    margin-top: 47%;
+    text-align: center;
+    color: black; 
+    font-size: 19px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    word-wrap: break-word
+}
+.tarjeta-producto button{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    width: 120px; 
+    height: 30px; 
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background: #ACB8BB; 
+    border-radius: 15px
+}
+
