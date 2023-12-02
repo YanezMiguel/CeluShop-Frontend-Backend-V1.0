@@ -32,7 +32,7 @@
     
             <div id="boton-carrito">
                 <a href="./cart.html" id="cart">
-                    <img src="./img/cart.png" alt="Carrito de compras"> <span id="cuenta-carrito">0</span>
+                    <img src="./img/cart.png" alt="Carrito de compras">
                 </a>
             </div>
         </nav>
@@ -41,6 +41,19 @@
     <main>
 		<section id="productos-container"></section>
         
+        <a href="./compra-exitosa.html">
+            <button id="comprar" type="button" onclick="realizarCompra()">Comprar</button>
+        </a>
+
+        <button id="limpiar" type="button" onclick="eliminarDelCarrito()">Limpiar</button>
+        
+        <div>
+            <section id="totales">
+            <p>Total unidades: #<span id="unidades">0</span></p>
+            <p>Precio total: $<span id="precio-total">0</span></p>
+            
+            </section>
+        </div>
 	</main>
 </body>
 </html>
