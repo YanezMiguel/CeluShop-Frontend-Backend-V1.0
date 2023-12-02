@@ -25,6 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+<<<<<<< HEAD
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarProducto` (IN `id_producto` INT, IN `Nombre` VARCHAR(255), IN `Descripcion` VARCHAR(255), IN `Precio` DECIMAL(10,2), IN `img` VARCHAR(255))   BEGIN
     INSERT INTO Productos(id_producto, Nombre, Descripcion, Precio, img) VALUES (id_producto, Nombre, Descripcion, Precio, img);
 END$$
@@ -35,11 +36,24 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Insertar_orden_compra` (IN `nombre_usuario` VARCHAR(255), IN `id_producto` INT)   BEGIN
     INSERT INTO orden_compra(nombre_usuario, id_producto) VALUES (nombre_usuario, id_producto);
+=======
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarProducto` (IN `id_producto` INT, IN `Nombre` VARCHAR(255), IN `Descripcion` VARCHAR(255), IN `Precio` DECIMAL(10,2), IN `img` VARCHAR(255))   BEGIN
+    INSERT INTO Productos(id_producto, Nombre, Descripcion, Precio, img) VALUES (id_producto, Nombre, Descripcion, Precio, img);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarUsuario` (IN `nombre_usuario` VARCHAR(255), IN `Email` VARCHAR(255), IN `Contraseña` VARCHAR(255))   BEGIN
+    INSERT INTO Usuarios(nombre_usuario, Email, Contraseña) VALUES (nombre_usuario, Email, Contraseña);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Insertar_orden_compra` (IN `nombre_usuario` VARCHAR(255), IN `id_producto` INT)   BEGIN
+    INSERT INTO orden_compra(nombre_usuario, id_producto) VALUES (nombre_usuario, id_producto);
+>>>>>>> 7bd373581f9a849ee3b78163649ea0d363205c1f
 END$$
 
 --
 -- Funciones
 --
+<<<<<<< HEAD
 CREATE DEFINER=`root`@`localhost` FUNCTION `TotalOrdenes_compra` () RETURNS INT(11)  BEGIN
     DECLARE total INT;
     SELECT COUNT(*) INTO total FROM orden_compra;
@@ -56,6 +70,24 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `TotalUsuarios` () RETURNS INT(11)  B
     DECLARE total INT;
     SELECT COUNT(*) INTO total FROM Usuarios;
     RETURN total;
+=======
+CREATE DEFINER=`root`@`localhost` FUNCTION `TotalOrdenes_compra` () RETURNS INT(11)  BEGIN
+    DECLARE total INT;
+    SELECT COUNT(*) INTO total FROM orden_compra;
+    RETURN total;
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `TotalProductos` () RETURNS INT(11)  BEGIN
+    DECLARE total INT;
+    SELECT COUNT(*) INTO total FROM Productos;
+    RETURN total;
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `TotalUsuarios` () RETURNS INT(11)  BEGIN
+    DECLARE total INT;
+    SELECT COUNT(*) INTO total FROM Usuarios;
+    RETURN total;
+>>>>>>> 7bd373581f9a849ee3b78163649ea0d363205c1f
 END$$
 
 DELIMITER ;
@@ -138,8 +170,13 @@ INSERT INTO `orden_compra` (`id_orden_compra`, `nombre_usuario`, `id_producto`) 
 -- Disparadores `orden_compra`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `Nueva_orden_compra` AFTER INSERT ON `orden_compra` FOR EACH ROW BEGIN
     INSERT INTO LogOrden_compra VALUES (NEW.nombre_usuario, NEW.id_producto, NOW());
+=======
+CREATE TRIGGER `Nueva_orden_compra` AFTER INSERT ON `orden_compra` FOR EACH ROW BEGIN
+    INSERT INTO LogOrden_compra VALUES (NEW.nombre_usuario, NEW.id_producto, NOW());
+>>>>>>> 7bd373581f9a849ee3b78163649ea0d363205c1f
 END
 $$
 DELIMITER ;
@@ -174,8 +211,13 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `precio`, `descripcion`, `img`
 -- Disparadores `productos`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `Nuevo_producto` AFTER INSERT ON `productos` FOR EACH ROW BEGIN
     INSERT INTO LogProductos VALUES (NEW.Nombre, NOW());
+=======
+CREATE TRIGGER `Nuevo_producto` AFTER INSERT ON `productos` FOR EACH ROW BEGIN
+    INSERT INTO LogProductos VALUES (NEW.Nombre, NOW());
+>>>>>>> 7bd373581f9a849ee3b78163649ea0d363205c1f
 END
 $$
 DELIMITER ;
@@ -208,8 +250,13 @@ INSERT INTO `usuarios` (`nombre_usuario`, `email`, `contraseña`) VALUES
 -- Disparadores `usuarios`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `Nuevo_usuario` AFTER INSERT ON `usuarios` FOR EACH ROW BEGIN
     INSERT INTO LogUsuarios VALUES (NEW.nombre_usuario, NOW());
+=======
+CREATE TRIGGER `Nuevo_usuario` AFTER INSERT ON `usuarios` FOR EACH ROW BEGIN
+    INSERT INTO LogUsuarios VALUES (NEW.nombre_usuario, NOW());
+>>>>>>> 7bd373581f9a849ee3b78163649ea0d363205c1f
 END
 $$
 DELIMITER ;
