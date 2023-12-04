@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CeluShop - Carrito</title>
-    <script src="./js/cart.js" defer></script>
+    <title>CeluShop - Mis compras</title>
+    <script src="./js/miscompras.js" defer></script>
 
-    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/miscompras.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
-<body >
+<body>
     <header>
         <nav class="menu" style="width: 1349px; height: 60px; left: 0px; top: 0px; position: absolute; background: #9997FF">
             <div id="titulo-tienda">
@@ -19,17 +19,17 @@
     
             <div id="boton-usuario">
                 <a href="./login/login.html">
-                    <img src="./img/user.png" style="width: 50px; height: 50px; left: -275px; top: 0px; position: absolute">
+                    <img src="./img/user.png" style="width: 50px; height: 50px; left: 885px; top: 5px; position: absolute">
                 </a>
     
                 <a href="./login/login.html" style="left: 940px; top: 18px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 800; word-wrap: break-word">Usuario</a>
             </div>
     
             <div id="boton-compras">
-                <a href="./mis-compras.html" style="left: 1060px; top: 18px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 800; word-wrap: break-word">Mis compras</a>
+                <a href="" style="left: 1060px; top: 18px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 800; word-wrap: break-word">Mis compras</a>
             </div>
     
-            <div id="boton-carrito">
+            <div id="boton-carrito" style="width: 50px; height: 50px; margin: 0 1160px; margin-top: 5px;">
                 <a href="./cart.html" id="cart">
                     <img src="./img/cart.png" alt="Carrito de compras">
                 </a>
@@ -38,20 +38,7 @@
     </header>
 
     <main>
-		<section id="productos-container"></section>
-        
-        <a href="./compra-exitosa.html">
-            <button id="comprar" type="button" onclick="realizarCompra()">Comprar</button>
-        </a>
-
-        <button id="limpiar" type="button" onclick="eliminarDelCarrito()">Limpiar</button>
-        
-        <div>
-            <section id="totales">
-            <p>Total unidades: #<span id="unidades">0</span></p>
-            <p>Precio total: $<span id="precio-total">0</span></p>
-            </section>
-        </div>
-	</main>
+        <section id="miscompras-container"></section>
+    </main>
 </body>
 </html>
