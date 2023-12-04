@@ -1,7 +1,4 @@
-const contenedorTarjetas = document.getElementById("productos-container");
-const unidadesElement = document.getElementById("unidades");
-const precioElement = document.getElementById("precio-total");
-const totalesElement = document.getElementById("totales");
+const contenedorTarjetas = document.getElementById("miscompras-container");
 
 function crearTarjetasProductosInicio(){
     contenedorTarjetas.innerHTML = "";
@@ -16,6 +13,7 @@ function crearTarjetasProductosInicio(){
             <img src="${producto.img}">
             <h1>${producto.nombre}</h1>
             <h2>$${producto.precio}</h2>
+            <h3>Comprado el: 5/12/2023</h2>
             <p>${producto.descripcion}</p>
             <button id="comprar2" onclick="realizarCompra()">Comprar</button>
             <button id="limpiar2" onclick="eliminarDelCarrito()">Limpiar</button>
@@ -27,40 +25,37 @@ function crearTarjetasProductosInicio(){
                 cuentaElemnt.innerText = agregarAlCarrito(producto);
                 
             });
-            nuevoCelular.getElementsByTagName("button")[0]
-            .addEventListener("click", (e) => {
-                restarAlCarrito(producto);
-                crearTarjetasProductosInicio();
-                actualizarTotales();
-            });
         })
     }
 }
 crearTarjetasProductosInicio();
-actualizarTotales();
 
-function actualizarTotales(){
-    const productos = JSON.parse(localStorage.getItem("celulares"));
-    let unidades = 0;
-    let precio = 0;
+function agregarAlCarrito(producto){
+    const memoria = JSON.parse(localStorage.getItem("celulares"));
+    console.log(memoria);
 
-    if(productos && productos.length > 0){
-        productos.forEach(producto => {
-            unidades += producto.cantidad;
-            precio += producto.precio * producto.cantidad;
-        })
-        unidadesElement.innerText = unidades;
-        precioElement.innerText = precio;
+    if(!memoria){
+        const nuevoProducto = getNuevoProductoParaMemoria(producto);
+        localStorage.setItem("celulares", JSON.stringify([nuevoProducto]));
     }
-}
+    else{
+        const indiceProducto = memoria.findIndex(celulares => celulares.id === producto.id);
+        console.log(indiceProducto);
 
-function realizarCompra() {
-    alert('Procesando compra...');
-    localStorage.removeItem('celulares');
-    location.reload(); 
-}
+        if(indiceProducto === 0){
+            const nuevaMemoria = memoria;
+            nuevaMemoria.push(getNuevoProductoParaMemoria(producto));
+            localStorage.setItem("celulares", JSON.stringify(nuevaMemoria));
+        }
+        else{
+            memoria[indiceProducto].cantidad++;
+            localStorage.setItem("celulares", JSON.stringify(memoria)); 
+        }
+    }
+}   
 
-function eliminarDelCarrito(){
-    localStorage.removeItem('celulares');
-    location.reload(); 
+function getNuevoProductoParaMemoria(producto){
+    const nuevoProducto = producto;
+    nuevoProducto.cantidad = 1;
+    return nuevoProducto;
 }
