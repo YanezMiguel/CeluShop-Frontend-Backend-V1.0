@@ -22,8 +22,7 @@ function crearTarjetasProductosInicio(){
             nuevoCelular.getElementsByTagName("button")[1]
             .addEventListener("click", (e) => {
                 const cuentaElemnt = e.target.parentElement.getElementsByTagName("span")[0];
-                cuentaElemnt.innerText = agregarAlCarrito(producto);
-                
+                cuentaElemnt.innerText = agregarAlCarrito(producto);  
             });
         })
     }

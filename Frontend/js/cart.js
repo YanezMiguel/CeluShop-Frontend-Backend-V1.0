@@ -56,7 +56,6 @@ function actualizarTotales(){
 
 function realizarCompra() {
     alert('Procesando compra...');
-    localStorage.removeItem('celulares');
     location.reload(); 
 }
 
